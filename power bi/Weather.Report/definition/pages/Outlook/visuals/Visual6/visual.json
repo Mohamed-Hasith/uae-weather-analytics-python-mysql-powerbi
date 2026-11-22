@@ -1,0 +1,266 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "Visual6",
+  "position": {
+    "x": 16,
+    "y": 510,
+    "z": 6,
+    "height": 234,
+    "width": 1248,
+    "tabOrder": 6
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Latest Forecast"
+                    }
+                  },
+                  "Property": "city"
+                }
+              },
+              "queryRef": "Latest Forecast.city"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Latest Forecast"
+                    }
+                  },
+                  "Property": "time"
+                }
+              },
+              "queryRef": "Latest Forecast.time"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Latest Forecast"
+                    }
+                  },
+                  "Property": "temperature"
+                }
+              },
+              "queryRef": "Latest Forecast.temperature"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Latest Forecast"
+                    }
+                  },
+                  "Property": "feels_like"
+                }
+              },
+              "queryRef": "Latest Forecast.feels_like"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Latest Forecast"
+                    }
+                  },
+                  "Property": "humidity"
+                }
+              },
+              "queryRef": "Latest Forecast.humidity"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Latest Forecast"
+                    }
+                  },
+                  "Property": "precipitation"
+                }
+              },
+              "queryRef": "Latest Forecast.precipitation"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Latest Forecast"
+                    }
+                  },
+                  "Property": "wind_speed"
+                }
+              },
+              "queryRef": "Latest Forecast.wind_speed"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Latest Forecast"
+                    }
+                  },
+                  "Property": "wind_direction"
+                }
+              },
+              "queryRef": "Latest Forecast.wind_direction"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Hourly forecast detail · Asia/Dubai'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "716163834abef3fd3f91",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Latest Forecast"
+              }
+            },
+            "Property": "city"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "9e356a5e586bbdc4178f",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Latest Forecast"
+              }
+            },
+            "Property": "time"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "d3203c7a5b8ab766b3e5",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Latest Forecast"
+              }
+            },
+            "Property": "temperature"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "4a771c3b82308daabe2e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Latest Forecast"
+              }
+            },
+            "Property": "feels_like"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "64a942a53429b2ad5732",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Latest Forecast"
+              }
+            },
+            "Property": "humidity"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c4fca864c6096816ad47",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Latest Forecast"
+              }
+            },
+            "Property": "precipitation"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "3fdaaaf414f8c2935263",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Latest Forecast"
+              }
+            },
+            "Property": "wind_speed"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "694583b7dd34db0e8ae3",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Latest Forecast"
+              }
+            },
+            "Property": "wind_direction"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "Outlook",
+  "displayName": "01   UAE · Next 24 hours",
+  "displayOption": "FitToPage",
+  "height": 760,
+  "width": 1280,
+  "pageBinding": {
+    "name": "874b323af2b5f539573b",
+    "type": "Default",
+    "parameters": []
+  }
+}

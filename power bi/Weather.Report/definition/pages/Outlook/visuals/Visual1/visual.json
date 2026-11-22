@@ -1,0 +1,77 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "Visual1",
+  "position": {
+    "x": 256,
+    "y": 16,
+    "z": 1,
+    "height": 172,
+    "width": 264,
+    "tabOrder": 1
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Latest Forecast"
+                    }
+                  },
+                  "Property": "Peak temperature"
+                }
+              },
+              "queryRef": "Latest Forecast.Peak temperature"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Peak forecast'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "291655ee11db17bfc3c5",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Latest Forecast"
+              }
+            },
+            "Property": "Peak temperature"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

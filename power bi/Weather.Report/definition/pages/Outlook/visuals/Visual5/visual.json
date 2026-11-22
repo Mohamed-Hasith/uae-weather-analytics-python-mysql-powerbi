@@ -1,0 +1,109 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "Visual5",
+  "position": {
+    "x": 852,
+    "y": 204,
+    "z": 5,
+    "height": 290,
+    "width": 412,
+    "tabOrder": 5
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Latest Forecast"
+                    }
+                  },
+                  "Property": "city"
+                }
+              },
+              "queryRef": "Latest Forecast.city",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Latest Forecast"
+                    }
+                  },
+                  "Property": "Peak wind"
+                }
+              },
+              "queryRef": "Latest Forecast.Peak wind"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Peak forecast wind speed by city'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "1ef5f82c7a1c108c1b1f",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Latest Forecast"
+              }
+            },
+            "Property": "city"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "8d5938c382e7a299d425",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Latest Forecast"
+              }
+            },
+            "Property": "Peak wind"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

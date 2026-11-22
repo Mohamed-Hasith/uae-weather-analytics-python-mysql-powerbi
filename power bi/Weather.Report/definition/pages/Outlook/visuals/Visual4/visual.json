@@ -1,0 +1,136 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "Visual4",
+  "position": {
+    "x": 16,
+    "y": 204,
+    "z": 4,
+    "height": 290,
+    "width": 820,
+    "tabOrder": 4
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Latest Forecast"
+                    }
+                  },
+                  "Property": "time"
+                }
+              },
+              "queryRef": "Latest Forecast.time",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Latest Forecast"
+                    }
+                  },
+                  "Property": "Mean temperature"
+                }
+              },
+              "queryRef": "Latest Forecast.Mean temperature"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Latest Forecast"
+                    }
+                  },
+                  "Property": "Mean feels-like"
+                }
+              },
+              "queryRef": "Latest Forecast.Mean feels-like"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Hourly temperature and feels-like · selected-city average'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "5cdae70b7fa1b0b88e59",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Latest Forecast"
+              }
+            },
+            "Property": "time"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "8c75e468cfc634d1a7f9",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Latest Forecast"
+              }
+            },
+            "Property": "Mean temperature"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d290fb560437b3662bcb",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Latest Forecast"
+              }
+            },
+            "Property": "Mean feels-like"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

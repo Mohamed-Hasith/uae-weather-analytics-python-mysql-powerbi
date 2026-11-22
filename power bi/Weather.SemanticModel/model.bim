@@ -1,0 +1,221 @@
+{
+  "compatibilityLevel": 1606,
+  "model": {
+    "annotations": [
+      {
+        "name": "PBI_ProTooling",
+        "value": "[\"DevMode\"]"
+      },
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"Latest Forecast\",\"Forecast History\"]"
+      }
+    ],
+    "culture": "en-US",
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "sourceQueryCulture": "en-AE",
+    "tables": [
+      {
+        "name": "Latest Forecast",
+        "columns": [
+          {
+            "name": "city",
+            "dataType": "string",
+            "lineageTag": "af1347a1-07c4-4311-b383-cea5b28dacfb",
+            "sourceColumn": "city",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "time",
+            "dataType": "dateTime",
+            "formatString": "yyyy-MM-dd HH:mm",
+            "lineageTag": "57bf97ba-6d01-4249-85a1-0ef6b392eb00",
+            "sourceColumn": "time",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "collected_at",
+            "dataType": "dateTime",
+            "formatString": "yyyy-MM-dd HH:mm",
+            "lineageTag": "fec4159a-8a2e-4bb7-939f-894fa75823eb",
+            "sourceColumn": "collected_at",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "temperature",
+            "dataType": "double",
+            "lineageTag": "09e8c896-b075-4555-a33e-c622d0ec83ec",
+            "sourceColumn": "temperature",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "feels_like",
+            "dataType": "double",
+            "lineageTag": "47894b88-2652-4347-894c-c1c1b559f0d3",
+            "sourceColumn": "feels_like",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "humidity",
+            "dataType": "int64",
+            "lineageTag": "6054178c-01d3-4a54-afe6-9412151d0028",
+            "sourceColumn": "humidity",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "precipitation",
+            "dataType": "double",
+            "lineageTag": "a812b18f-8804-425a-9c67-8fb60d2824b2",
+            "sourceColumn": "precipitation",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "wind_speed",
+            "dataType": "double",
+            "lineageTag": "8c4ce039-edd1-4869-b422-948eeff6044d",
+            "sourceColumn": "wind_speed",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "wind_direction",
+            "dataType": "int64",
+            "lineageTag": "7e6a696f-c224-416a-b3c9-e95d57e4b63c",
+            "sourceColumn": "wind_direction",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "a02707d8-72ce-4cb8-a4c9-644a36b341c4",
+        "measures": [
+          {
+            "name": "Mean temperature",
+            "expression": "AVERAGE('Latest Forecast'[temperature])",
+            "formatString": "0.0\" °C\"",
+            "lineageTag": "d1337f13-dc59-45b8-92f4-9cc63de5f555"
+          },
+          {
+            "name": "Mean feels-like",
+            "expression": "AVERAGE('Latest Forecast'[feels_like])",
+            "formatString": "0.0\" °C\"",
+            "lineageTag": "e65abd2c-630c-4213-9727-73980222a9dc"
+          },
+          {
+            "name": "Peak temperature",
+            "expression": "MAX('Latest Forecast'[temperature])",
+            "formatString": "0.0\" °C\"",
+            "lineageTag": "2c509243-5fac-476b-a813-4e6b9eed893c"
+          },
+          {
+            "name": "Mean humidity",
+            "expression": "DIVIDE(AVERAGE('Latest Forecast'[humidity]),100)",
+            "formatString": "0%",
+            "lineageTag": "90546f40-646e-4c8e-b10f-9adbfd1dbe87"
+          },
+          {
+            "name": "Peak wind",
+            "expression": "MAX('Latest Forecast'[wind_speed])",
+            "formatString": "0.0",
+            "lineageTag": "d7909852-7fa5-45d8-966f-da314a2b81be"
+          },
+          {
+            "name": "Last collection",
+            "expression": "MAX('Latest Forecast'[collected_at])",
+            "formatString": "yyyy-MM-dd HH:mm",
+            "lineageTag": "694b04c0-576b-4ab8-b996-9388295231c3"
+          },
+          {
+            "name": "Forecast rows",
+            "expression": "COUNTROWS('Latest Forecast')",
+            "formatString": "#,0",
+            "lineageTag": "e2966f40-107b-445d-ac3d-579dc9ce6d74"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Latest Forecast",
+            "mode": "import",
+            "source": {
+              "expression": "MySQL.Database(\"127.0.0.1\", \"uae_weather_analytics\", [Query=\"SELECT city, `time`, collected_at, temperature, feels_like, humidity, precipitation, wind_speed, wind_direction FROM hourly_forecasts WHERE collected_at = (SELECT MAX(collected_at) FROM hourly_forecasts)\"])",
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Forecast History",
+        "columns": [
+          {
+            "name": "city",
+            "dataType": "string",
+            "lineageTag": "00228fd7-6a01-4ee5-b66a-d3cf2a036b66",
+            "sourceColumn": "city",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "target_hour",
+            "dataType": "string",
+            "lineageTag": "944c9b8e-7201-40da-8649-3213618dcaa5",
+            "sourceColumn": "target_hour",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "collected_at",
+            "dataType": "dateTime",
+            "formatString": "yyyy-MM-dd HH:mm",
+            "lineageTag": "4d7a7b20-0423-4662-8251-9020bbb6a569",
+            "sourceColumn": "collected_at",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "temperature",
+            "dataType": "double",
+            "lineageTag": "a659367f-3080-4b2f-b9df-c82f13061fb2",
+            "sourceColumn": "temperature",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "delta_c",
+            "dataType": "double",
+            "lineageTag": "5a3e921f-05c3-4fd2-aa48-0c5d01275ef8",
+            "sourceColumn": "delta_c",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "82b53a6a-89c1-43cf-9575-e1133f278a65",
+        "measures": [
+          {
+            "name": "Predicted temperature",
+            "expression": "IF(HASONEVALUE('Forecast History'[city]) && HASONEVALUE('Forecast History'[target_hour]), AVERAGE('Forecast History'[temperature]))",
+            "formatString": "0.0\" °C\"",
+            "lineageTag": "4057df32-60b8-48e4-a36b-89a8c29dae02"
+          },
+          {
+            "name": "Revision delta",
+            "expression": "IF(HASONEVALUE('Forecast History'[city]) && HASONEVALUE('Forecast History'[target_hour]) && HASONEVALUE('Forecast History'[collected_at]), SELECTEDVALUE('Forecast History'[delta_c]))",
+            "formatString": "0.0\" °C\"",
+            "lineageTag": "7ad006e2-6d3a-486c-9c1b-62cd4e4ea84f"
+          },
+          {
+            "name": "Collection count",
+            "expression": "DISTINCTCOUNT('Forecast History'[collected_at])",
+            "formatString": "#,0",
+            "lineageTag": "fb0f5fb4-a30a-4ca2-aeeb-b85498c15556"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Forecast History",
+            "mode": "import",
+            "source": {
+              "expression": "MySQL.Database(\"127.0.0.1\", \"uae_weather_analytics\", [Query=\"SELECT city, DATE_FORMAT(`time`, '%Y-%m-%d %H:00') AS target_hour, collected_at, temperature, temperature - LAG(temperature) OVER (PARTITION BY city, `time` ORDER BY collected_at) AS delta_c FROM hourly_forecasts WHERE collected_at >= (SELECT MAX(collected_at) - INTERVAL 7 DAY FROM hourly_forecasts)\"])",
+              "type": "m"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

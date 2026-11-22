@@ -1,0 +1,109 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "Visual3",
+  "position": {
+    "x": 16,
+    "y": 227,
+    "z": 3,
+    "height": 275,
+    "width": 1248,
+    "tabOrder": 3
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Forecast History"
+                    }
+                  },
+                  "Property": "collected_at"
+                }
+              },
+              "queryRef": "Forecast History.collected_at",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Forecast History"
+                    }
+                  },
+                  "Property": "Predicted temperature"
+                }
+              },
+              "queryRef": "Forecast History.Predicted temperature"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'03   How the prediction changed · select one city and hour above'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "d23867f081840aad6c10",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Forecast History"
+              }
+            },
+            "Property": "collected_at"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "97fb523db16e435949c4",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Forecast History"
+              }
+            },
+            "Property": "Predicted temperature"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

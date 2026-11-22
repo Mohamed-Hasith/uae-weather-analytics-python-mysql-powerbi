@@ -1,0 +1,39 @@
+// Table: Latest Forecast
+Mean temperature =
+AVERAGE('Latest Forecast'[temperature])
+
+// Table: Latest Forecast
+Mean feels-like =
+AVERAGE('Latest Forecast'[feels_like])
+
+// Table: Latest Forecast
+Peak temperature =
+MAX('Latest Forecast'[temperature])
+
+// Table: Latest Forecast
+Mean humidity =
+DIVIDE(AVERAGE('Latest Forecast'[humidity]),100)
+
+// Table: Latest Forecast
+Peak wind =
+MAX('Latest Forecast'[wind_speed])
+
+// Table: Latest Forecast
+Last collection =
+MAX('Latest Forecast'[collected_at])
+
+// Table: Latest Forecast
+Forecast rows =
+COUNTROWS('Latest Forecast')
+
+// Table: Forecast History
+Predicted temperature =
+IF(HASONEVALUE('Forecast History'[city]) && HASONEVALUE('Forecast History'[target_hour]), AVERAGE('Forecast History'[temperature]))
+
+// Table: Forecast History
+Revision delta =
+IF(HASONEVALUE('Forecast History'[city]) && HASONEVALUE('Forecast History'[target_hour]) && HASONEVALUE('Forecast History'[collected_at]), SELECTEDVALUE('Forecast History'[delta_c]))
+
+// Table: Forecast History
+Collection count =
+DISTINCTCOUNT('Forecast History'[collected_at])

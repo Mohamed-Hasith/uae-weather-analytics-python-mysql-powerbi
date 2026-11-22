@@ -1,0 +1,185 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "Visual4",
+  "position": {
+    "x": 16,
+    "y": 518,
+    "z": 4,
+    "height": 226,
+    "width": 1248,
+    "tabOrder": 4
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Forecast History"
+                    }
+                  },
+                  "Property": "city"
+                }
+              },
+              "queryRef": "Forecast History.city"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Forecast History"
+                    }
+                  },
+                  "Property": "target_hour"
+                }
+              },
+              "queryRef": "Forecast History.target_hour"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Forecast History"
+                    }
+                  },
+                  "Property": "collected_at"
+                }
+              },
+              "queryRef": "Forecast History.collected_at"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Forecast History"
+                    }
+                  },
+                  "Property": "temperature"
+                }
+              },
+              "queryRef": "Forecast History.temperature"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Forecast History"
+                    }
+                  },
+                  "Property": "Revision delta"
+                }
+              },
+              "queryRef": "Forecast History.Revision delta"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Revision log · change from preceding available snapshot'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "4097853e45a608966609",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Forecast History"
+              }
+            },
+            "Property": "city"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "c82d1ad04400d6a4268e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Forecast History"
+              }
+            },
+            "Property": "target_hour"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "07156cbd92870992c4c7",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Forecast History"
+              }
+            },
+            "Property": "collected_at"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "11ed78a4203b6d1d1539",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Forecast History"
+              }
+            },
+            "Property": "temperature"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "086580302a5a17679c83",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Forecast History"
+              }
+            },
+            "Property": "Revision delta"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

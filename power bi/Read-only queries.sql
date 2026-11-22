@@ -1,0 +1,3 @@
+SELECT city, `time`, collected_at, temperature, feels_like, humidity, precipitation, wind_speed, wind_direction FROM hourly_forecasts WHERE collected_at = (SELECT MAX(collected_at) FROM hourly_forecasts);
+
+SELECT city, DATE_FORMAT(`time`, '%Y-%m-%d %H:00') AS target_hour, collected_at, temperature, temperature - LAG(temperature) OVER (PARTITION BY city, `time` ORDER BY collected_at) AS delta_c FROM hourly_forecasts WHERE collected_at >= (SELECT MAX(collected_at) - INTERVAL 7 DAY FROM hourly_forecasts);
